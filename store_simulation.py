@@ -17,8 +17,12 @@ print('-'*30)
 
 while True:
     user_shop = str(input('Qual item voce deseja comprar? ')).capitalize()
-    item = t1.index(user_shop)+1
-    soma += t1[item]
+    if user_shop in t1:
+        item = t1.index(user_shop)+1
+        soma += t1[item]
+        print('\033[32mObjeto computado\033[m')
+    else:
+        print('\033[31mOpcao invalida\033[m')
     
 
     while True:
@@ -26,7 +30,7 @@ while True:
         if user_answer in 'SsNn':
             break
         elif user_answer not in 'SsNn':
-            print('Opcao invalida')
+            print('\033[31mOpcao invalida\033[m')
     if user_answer in 'Nn':
         break
 
